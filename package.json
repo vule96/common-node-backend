@@ -9,7 +9,7 @@
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "rimraf ./build",
-    "start": "ts-node -r tsconfig-paths/register build/server.js",
+    "start": "ts-node -r tsconfig-paths/register build/src/server.js",
     "dev": "ts-node-dev --cls -r tsconfig-paths/register src/server.ts",
     "lint": "eslint --ext ts,tsx src/",
     "lint:fix": "eslint --fix --ext ts,tsx src/",
