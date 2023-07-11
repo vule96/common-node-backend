@@ -2,30 +2,56 @@
   "name": "common-node-backend",
   "version": "1.0.0",
   "description": "My blog server",
-  "main": "src/server.ts",
-  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18.12.0"
+  },
   "scripts": {
     "build": "yarn clean && tsc",
-    "clean": "rimraf ./build"
+    "clean": "rimraf ./build",
+    "start": "ts-node -r tsconfig-paths/register build/server.js",
+    "dev": "ts-node-dev --cls -r tsconfig-paths/register src/server.ts",
+    "lint": "eslint --ext ts,tsx src/",
+    "lint:fix": "eslint --fix --ext ts,tsx src/",
+    "lint:type": "tsc --pretty --noEmit",
+    "prettier": "prettier --check \"src/**/(*.tsx|*.ts)\"",
+    "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts)\""
   },
   "keywords": [],
   "author": "vule <vulehuy2905@gmail.com>",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "compression": "^1.7.4",
+    "config": "^3.3.9",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dayjs": "^1.11.9",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.1",
     "lodash": "^4.17.21",
-    "slugify": "^1.6.6"
+    "morgan": "^1.10.0",
+    "mysql2": "^3.5.1",
+    "nanoid": "^4.0.2",
+    "pino": "^8.14.1",
+    "slugify": "^1.6.6",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.3",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/lodash": "^4.14.195",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.44.0",
     "nodemon": "^3.0.1",
+    "prettier": "^3.0.0",
     "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.6"
   }
 }
