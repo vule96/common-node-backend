@@ -30,7 +30,7 @@ class RequestMiddleware {
         console.log(error);
 
         const others = error?.issues?.map((i: any) => i.message);
-        throw new BadRequestError('Thiếu dữ liệu', undefined, others);
+        throw new BadRequestError('Data is missing', undefined, others);
       }
     };
 }

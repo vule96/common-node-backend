@@ -4,7 +4,7 @@ export default {
   db: {
     host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USERNAME || 'root',
-    password: process.env.DB_PASSWORD || '',
-    name: process.env.DB_NAME || 'roles',
+    password: process.env.DB_PASSWORD || 'P@ssword123',
+    name: process.env.DB_NAME || 'common-db',
   },
 };
