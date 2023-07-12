@@ -1,6 +1,7 @@
 import Express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import AppMiddleware from './middlewares/app.middleware';
 
 const app = Express();
 
@@ -13,10 +14,10 @@ app.use(morgan('dev'));
 // // routes
 // app.use("/", route);
 
-// // catch error 404
-// app.use(AppMiddleware.catchError404API);
+// catch error 404
+app.use(AppMiddleware.catchError404API);
 
-// // catch error server.
-// app.use(AppMiddleware.catchInterServerError);
+// catch error server.
+app.use(AppMiddleware.catchInterServerError);
 
 export default app;

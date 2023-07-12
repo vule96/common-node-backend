@@ -10,5 +10,13 @@ const server = app.listen(PORT, () => {
 });
 
 process.on('SIGINT', () => {
-  server.close(() => console.log('Exits servers.'));
+  server.close(() =>
+    log.info(`Process ${process.pid} received SIGINT: Exiting with code 0`),
+  );
 });
+
+// process.on('SIGTERM', async () => {
+//   logger.info(`Process ${process.pid} received SIGTERM: Exiting with code 0`);
+//   await redisClient.disconnect();
+//   void exitHandler(0);
+// });
