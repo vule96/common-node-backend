@@ -5,7 +5,7 @@ import Express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import AppMiddleware from './middlewares/app.middleware';
-import route from './routes';
+import routes from './routes';
 
 const app = Express();
 
@@ -27,13 +27,13 @@ app.options('*', cors());
 
 app.use(cookieParser());
 
-// routes
-app.use('/', route);
+// v1 api routes
+app.use('/api/v1', routes);
 
 // catch error 404
 app.use(AppMiddleware.catchError404API);
 
-// catch error server.
+// catch error server
 app.use(AppMiddleware.catchInterServerError);
 
 export default app;
