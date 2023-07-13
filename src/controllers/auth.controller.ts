@@ -52,6 +52,24 @@ class AuthController {
       message: 'Logout successfully',
     }).send(res);
   };
+
+  refreshToken = async (req: Request, res: Response) => {
+    const { refresh_token } = req.cookies;
+
+    const access_token = await AuthService.refreshToken(refresh_token);
+
+    // Add Cookies
+    res.cookie('access_token', access_token, accessTokenCookieOptions);
+    res.cookie('logged_in', true, {
+      ...accessTokenCookieOptions,
+      httpOnly: false,
+    });
+
+    return new OKResponse({
+      message: 'Refresh access token successfully',
+      metadata: access_token,
+    }).send(res);
+  };
 }
 
 export default new AuthController();

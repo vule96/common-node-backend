@@ -24,4 +24,9 @@ route.get(
   RequestMiddleware.catchErrorRequest(AuthController.logout),
 );
 
+route.get(
+  '/refresh',
+  RequestMiddleware.catchErrorRequest(AuthController.refreshToken),
+);
+
 export default route;

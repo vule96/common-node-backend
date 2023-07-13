@@ -9,7 +9,7 @@ import routes from './routes';
 
 const app = Express();
 
-// middlewares
+// parse json request body
 app.use(Express.json());
 
 // parse urlencoded request body
@@ -18,6 +18,7 @@ app.use(Express.urlencoded({ extended: true }));
 // gzip compression
 app.use(compression());
 
+// set security HTTP headers
 app.use(helmet());
 app.use(morgan('dev'));
 
