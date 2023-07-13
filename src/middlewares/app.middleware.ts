@@ -4,7 +4,7 @@ import {
   NotFoundRequestError,
 } from '@src/responses/error.response';
 import log from '@src/utils/logger';
-import { NextFunction, Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 
 class AppMiddleware {
   static catchError404API = (

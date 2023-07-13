@@ -1,5 +1,18 @@
 import { TypeOf, object, string } from 'zod';
 
+export const LoginSchema = object({
+  body: object({
+    email: string({
+      required_error: 'Email address is required',
+    }).email('Invalid email address'),
+    password: string({
+      required_error: 'Password is required',
+    })
+      .min(8, 'Password must be more than 8 characters')
+      .max(64, 'Password must be less than 64 characters'),
+  }),
+});
+
 export const RegisterSchema = object({
   body: object({
     email: string({
@@ -28,6 +41,8 @@ export const RegisterSchema = object({
     message: 'Passwords do not match',
   }),
 });
+
+export type LoginInput = TypeOf<typeof LoginSchema>['body'];
 
 export type RegisterInput = Omit<
   TypeOf<typeof RegisterSchema>['body'],

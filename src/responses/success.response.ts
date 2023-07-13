@@ -1,5 +1,5 @@
 import { ReasonPhrases, StatusCodes } from '@src/core';
-import { Response } from 'express';
+import type { Response } from 'express';
 
 interface ISuccessResponse {
   message: string;

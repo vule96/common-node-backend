@@ -1,6 +1,6 @@
 import { BadRequestError } from '@src/responses/error.response';
-import { NextFunction, Request, Response } from 'express';
-import { AnyZodObject } from 'zod';
+import type { NextFunction, Request, Response } from 'express';
+import type { AnyZodObject } from 'zod';
 
 class RequestMiddleware {
   static catchErrorRequest = (
