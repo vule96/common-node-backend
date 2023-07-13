@@ -42,6 +42,16 @@ class AuthController {
       metadata: response,
     }).send(res);
   };
+
+  logout = async (req: Request, res: Response) => {
+    res.cookie('access_token', '', { maxAge: -1 });
+    res.cookie('refresh_token', '', { maxAge: -1 });
+    res.cookie('logged_in', '', { maxAge: -1 });
+
+    return new OKResponse({
+      message: 'Logout successfully',
+    }).send(res);
+  };
 }
 
 export default new AuthController();

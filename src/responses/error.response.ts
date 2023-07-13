@@ -39,6 +39,16 @@ export class BadRequestError extends ErrorResponse {
   }
 }
 
+export class UnauthorizedError extends ErrorResponse {
+  constructor(
+    message = ReasonPhrases.UNAUTHORIZED,
+    statusCode = StatusCodes.UNAUTHORIZED,
+    others?: any,
+  ) {
+    super(message, statusCode, others);
+  }
+}
+
 export class ForbiddenRequestError extends ErrorResponse {
   constructor(
     message = ReasonPhrases.FORBIDDEN,

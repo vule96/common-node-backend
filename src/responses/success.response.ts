@@ -5,7 +5,7 @@ interface ISuccessResponse {
   message: string;
   statusCode?: number;
   reasonStatusCode?: string;
-  metadata: any;
+  metadata?: any;
   options?: any;
 }
 

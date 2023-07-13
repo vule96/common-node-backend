@@ -1,3 +1,6 @@
+import compression from 'compression';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
 import Express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -8,9 +11,21 @@ const app = Express();
 
 // middlewares
 app.use(Express.json());
+
+// parse urlencoded request body
 app.use(Express.urlencoded({ extended: true }));
+
+// gzip compression
+app.use(compression());
+
 app.use(helmet());
 app.use(morgan('dev'));
+
+// enable cors
+app.use(cors());
+app.options('*', cors());
+
+app.use(cookieParser());
 
 // routes
 app.use('/', route);

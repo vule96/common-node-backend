@@ -5,12 +5,16 @@ import type { AnyZodObject } from 'zod';
 class RequestMiddleware {
   static catchErrorRequest = (
     fn: (
-      req: Request<any, any, any>,
+      req: Request<Record<string, never>, Record<string, never>, any>,
       res: Response,
       next: NextFunction,
     ) => Promise<any>,
   ) => {
-    return (req: Request, res: Response, next: NextFunction) => {
+    return (
+      req: Request<Record<string, never>, Record<string, never>, any>,
+      res: Response,
+      next: NextFunction,
+    ) => {
       fn(req, res, next).catch(next);
     };
   };
