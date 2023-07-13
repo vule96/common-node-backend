@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS `common-db` DEFAULT CHARACTER SET utf8 COLLATE utf
 USE `common-db`;
 
 CREATE TABLE IF NOT EXISTS `Users` (
-  `id` VARCHAR(36) DEFAULT (UUID()),
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `email` varchar(64) NOT NULL,
   `password` varchar(64) NOT NULL,
   `last_name` varchar(64) NOT NULL,
